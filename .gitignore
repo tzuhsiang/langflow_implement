@@ -1,0 +1,4 @@
+langflow-data/
+langflow-postgres/
+*.log
+models/
