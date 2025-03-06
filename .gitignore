@@ -1,0 +1,16 @@
+# 保留空目錄的技巧（放一個 .gitkeep 檔案，這樣目錄本身會進git）
+langflow-data/*
+!langflow-data/.gitkeep
+
+langflow-postgres/*
+!langflow-postgres/.gitkeep
+
+# 忽略log檔
+*.log
+
+# 忽略整個models目錄
+models/*
+!models/.gitkeep
+
+# 忽略網路環境檔
+env/network.env

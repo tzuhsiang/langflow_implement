@@ -1,0 +1,69 @@
+services:
+  langflow:
+    image: langflowai/langflow:latest
+    container_name: langflow
+    ports:
+      - "7860:7860"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
+      - LANGFLOW_CONFIG_DIR=/var/lib/langflow
+    env_file:
+      - ./env/network.env    # 這裡要加 ./env/
+    volumes:
+      - ./langflow-data:/var/lib/langflow
+    networks:
+      - langflow_network
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:16
+    container_name: langflow_postgres
+    environment:
+      POSTGRES_USER: langflow
+      POSTGRES_PASSWORD: langflow
+      POSTGRES_DB: langflow
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./langflow-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "langflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - langflow_network
+    restart: unless-stopped
+
+  vllm:
+    image: vllm/vllm-openai:latest
+    container_name: vllm
+    command: [
+      "--model", "/models/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/manual-20250305",
+      "--host", "0.0.0.0",
+      "--port", "8000",
+      "--download-dir", "/models"
+    ]
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./models:/models
+    environment:
+      - HUGGINGFACE_HUB_CACHE=/models
+      - HF_HUB_OFFLINE=1
+    env_file:
+      - ./env/network.env    # 這裡要加 ./env/
+    networks:
+      - langflow_network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+
+networks:
+  langflow_network:
+    driver: bridge
