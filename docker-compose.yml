@@ -43,6 +43,7 @@ services:
     container_name: vllm
     command: [
       "--model", "/models/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/manual-20250305",
+      "--served-model-name","Llama-3.1-8B-Instruct",
       "--host", "0.0.0.0",
       "--port", "8000",
       "--download-dir", "/models"

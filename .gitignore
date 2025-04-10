@@ -12,5 +12,10 @@ langflow-postgres/*
 models/*
 !models/.gitkeep
 
+# 忽略整個flows目錄
+flows/*
+!flows/.gitkeep
+
+
 # 忽略網路環境檔
 env/network.env

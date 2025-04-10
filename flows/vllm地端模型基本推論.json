@@ -1,12 +1,12 @@
 {
   "description": "Perform basic prompting with an OpenAI model.",
-  "user_id": "9d405971-4a8c-4427-bcbb-686af9087d2e",
+  "user_id": "1b6be8c5-e733-41a7-9bd2-e01a2f259e92",
   "endpoint_name": null,
-  "id": "38a705e7-1a62-41b4-8921-8b090c59ef8e",
+  "id": "1bd5f773-90e3-4ba2-b3a0-db1ea955a836",
   "tags": null,
   "locked": false,
   "gradient": "2",
-  "folder_id": "cf089980-3cbc-48d8-b29f-2583b5c19a69",
+  "folder_id": "3be54956-ec51-4b9a-bf18-db2a96da8a3e",
   "is_component": false,
   "data": {
     "nodes": [
@@ -14,7 +14,7 @@
         "data": {
           "description": "Get chat inputs from the Playground.",
           "display_name": "Chat Input",
-          "id": "ChatInput-FKyB0",
+          "id": "ChatInput-o38TJ",
           "node": {
             "base_classes": [
               "Message"
@@ -279,14 +279,14 @@
         },
         "dragging": false,
         "height": 234,
-        "id": "ChatInput-FKyB0",
+        "id": "ChatInput-o38TJ",
         "measured": {
           "height": 234,
           "width": 320
         },
         "position": {
-          "x": 370.6367779779016,
-          "y": 708.5717478728378
+          "x": 332.163035352048,
+          "y": 650.1486572187639
         },
         "positionAbsolute": {
           "x": 689.5720422421635,
@@ -300,7 +300,7 @@
         "data": {
           "description": "Create a prompt template with dynamic variables.",
           "display_name": "Prompt",
-          "id": "Prompt-WPdXW",
+          "id": "Prompt-bKKD0",
           "node": {
             "template": {
               "_type": "Component",
@@ -432,69 +432,33 @@
             "error": null,
             "edited": false,
             "metadata": {},
-            "tool_mode": false
+            "tool_mode": false,
+            "lf_version": "1.2.0"
           },
           "type": "Prompt"
         },
         "dragging": false,
         "height": 260,
-        "id": "Prompt-WPdXW",
+        "id": "Prompt-bKKD0",
         "measured": {
           "height": 260,
           "width": 320
         },
         "position": {
-          "x": 394.776022018222,
-          "y": 1193.0360973282798
+          "x": 460.25651279274683,
+          "y": 1157.6621088380034
         },
         "positionAbsolute": {
           "x": 690.2015147036818,
           "y": 1018.5443911764344
         },
-        "selected": true,
+        "selected": false,
         "type": "genericNode",
         "width": 320
       },
       {
         "data": {
-          "id": "note-mVHCn",
-          "node": {
-            "description": "### 💡 Add your OpenAI API key here 👇",
-            "display_name": "",
-            "documentation": "",
-            "template": {
-              "backgroundColor": "transparent"
-            }
-          },
-          "type": "note"
-        },
-        "dragging": false,
-        "height": 324,
-        "id": "note-mVHCn",
-        "measured": {
-          "height": 324,
-          "width": 324
-        },
-        "position": {
-          "x": 1075.829573520873,
-          "y": 657.2057655038416
-        },
-        "positionAbsolute": {
-          "x": 1075.829573520873,
-          "y": 657.2057655038416
-        },
-        "resizing": false,
-        "selected": false,
-        "style": {
-          "height": 324,
-          "width": 324
-        },
-        "type": "noteNode",
-        "width": 324
-      },
-      {
-        "data": {
-          "id": "ChatOutput-6Q1eR",
+          "id": "ChatOutput-A22QU",
           "node": {
             "base_classes": [
               "Message"
@@ -776,7 +740,7 @@
         },
         "dragging": false,
         "height": 234,
-        "id": "ChatOutput-6Q1eR",
+        "id": "ChatOutput-A22QU",
         "measured": {
           "height": 234,
           "width": 320
@@ -789,21 +753,59 @@
           "x": 1444.936881624563,
           "y": 872.7273956769025
         },
-        "selected": false,
+        "selected": true,
         "type": "genericNode",
         "width": 320
       },
       {
-        "id": "CustomComponent-NnG1e",
+        "id": "LMStudioModel-tCx2X",
         "type": "genericNode",
         "position": {
-          "x": 931.3266806127824,
-          "y": 781.9992874749792
+          "x": 940.5770831010855,
+          "y": 751.3655415500253
         },
         "data": {
           "node": {
             "template": {
               "_type": "Component",
+              "api_key": {
+                "load_from_db": false,
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "api_key",
+                "value": "",
+                "display_name": "LM Studio API Key",
+                "advanced": true,
+                "input_types": [
+                  "Message"
+                ],
+                "dynamic": false,
+                "info": "The LM Studio API Key to use for LM Studio.",
+                "title_case": false,
+                "password": true,
+                "type": "str",
+                "_input_type": "SecretStrInput"
+              },
+              "base_url": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "load_from_db": false,
+                "list": false,
+                "list_add_label": "Add More",
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "base_url",
+                "value": "http://vllm:8000/v1",
+                "display_name": "Base URL",
+                "advanced": false,
+                "dynamic": false,
+                "info": "Endpoint of the LM Studio API. Defaults to 'http://localhost:1234/v1' if not specified.",
+                "title_case": false,
+                "type": "str",
+                "_input_type": "StrInput"
+              },
               "code": {
                 "type": "code",
                 "required": true,
@@ -811,7 +813,7 @@
                 "list": false,
                 "show": true,
                 "multiline": true,
-                "value": "import requests\r\nfrom langflow.custom import Component\r\nfrom langflow.io import MessageTextInput, Output\r\nfrom langflow.schema import Data\r\nfrom langflow.schema.message import Message  # 引入 Message 類\r\n\r\n\r\nclass CustomVLLMComponent(Component):\r\n    display_name = \"vLLM Inference\"\r\n    description = \"A custom component to perform inference using a local vLLM model.\"\r\n    documentation: str = \"https://docs.langflow.org/components-custom-components\"\r\n    icon = \"brain\"\r\n    name = \"CustomVLLMComponent\"\r\n\r\n    inputs = [\r\n        MessageTextInput(\r\n            name=\"input_value\",\r\n            display_name=\"Input Value\",\r\n            info=\"Additional input value to include in the request.\",\r\n            value=\"Provide a short answer.\",\r\n            tool_mode=True,\r\n        ),\r\n        MessageTextInput(\r\n            name=\"prompt\",\r\n            display_name=\"Prompt\",\r\n            info=\"The prompt to send to the vLLM model.\",\r\n            value=\"Hello, how can I assist you today?\",\r\n            tool_mode=True,\r\n        ),\r\n        MessageTextInput(\r\n            name=\"model\",\r\n            display_name=\"Model\",\r\n            info=\"The vLLM model path or name to use for inference.\",\r\n            value=\"/models/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/manual-20250305\",\r\n            tool_mode=True,\r\n        ),\r\n        MessageTextInput(\r\n            name=\"max_tokens\",\r\n            display_name=\"Max Tokens\",\r\n            info=\"The maximum number of tokens to generate.\",\r\n            value=\"512\",  # 預設值設為 512\r\n            tool_mode=True,\r\n        ),\r\n        MessageTextInput(\r\n            name=\"temperature\",\r\n            display_name=\"Temperature\",\r\n            info=\"Controls the randomness of the output (0.0 to 1.0).\",\r\n            value=\"0.8\",  # 預設值設為 0.8\r\n            tool_mode=True,\r\n        ),\r\n    ]\r\n\r\n    outputs = [\r\n        Output(display_name=\"Response\", name=\"response\", method=\"build_response\"),\r\n    ]\r\n\r\n    def build_response(self) -> Message:  # 返回 Message 而不是 Data\r\n        # 組合 prompt 和 input_value\r\n        combined_prompt = f\"{self.prompt}\\n{self.input_value}\"\r\n\r\n        # vLLM API 端點\r\n        url = \"http://vllm:8000/v1/completions\"\r\n        headers = {\"Content-Type\": \"application/json\"}\r\n        payload = {\r\n            \"model\": self.model,  # 使用輸入的 model 值\r\n            \"prompt\": combined_prompt,\r\n            \"max_tokens\": int(self.max_tokens),  # 轉為整數\r\n            \"temperature\": float(self.temperature),  # 轉為浮點數\r\n        }\r\n\r\n        try:\r\n            # 發送請求到 vLLM\r\n            response = requests.post(url, json=payload, headers=headers)\r\n            response.raise_for_status()\r\n            vllm_response = response.json()\r\n            generated_text = vllm_response[\"choices\"][0][\"text\"]\r\n        except requests.exceptions.RequestException as e:\r\n            generated_text = f\"Error calling vLLM: {str(e)}\"\r\n\r\n        # 構建 Message 對象，模仿 AIMessage\r\n        message = Message(\r\n            text=generated_text,\r\n            sender=\"AI\",\r\n            sender_name=\"vLLM\"\r\n        )\r\n        self.status = message\r\n        return message\r\n\r\n\r\n# 可選：測試代碼\r\nif __name__ == \"__main__\":\r\n    component = CustomVLLMComponent()\r\n    component.input_value = \"What is the capital of France?\"\r\n    component.prompt = \"Answer in one word.\"\r\n    component.model = \"/models/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/manual-20250305\"\r\n    component.max_tokens = \"512\"\r\n    component.temperature = \"0.8\"\r\n    result = component.build_response()\r\n    print(result.text)",
+                "value": "from typing import Any\nfrom urllib.parse import urljoin\n\nimport httpx\nfrom langchain_openai import ChatOpenAI\nfrom typing_extensions import override\n\nfrom langflow.base.models.model import LCModelComponent\nfrom langflow.field_typing import LanguageModel\nfrom langflow.field_typing.range_spec import RangeSpec\nfrom langflow.inputs import DictInput, DropdownInput, FloatInput, IntInput, SecretStrInput, StrInput\n\n\nclass LMStudioModelComponent(LCModelComponent):\n    display_name = \"LM Studio\"\n    description = \"Generate text using LM Studio Local LLMs.\"\n    icon = \"LMStudio\"\n    name = \"LMStudioModel\"\n\n    @override\n    async def update_build_config(self, build_config: dict, field_value: Any, field_name: str | None = None):\n        if field_name == \"model_name\":\n            base_url_dict = build_config.get(\"base_url\", {})\n            base_url_load_from_db = base_url_dict.get(\"load_from_db\", False)\n            base_url_value = base_url_dict.get(\"value\")\n            if base_url_load_from_db:\n                base_url_value = await self.get_variables(base_url_value, field_name)\n            elif not base_url_value:\n                base_url_value = \"http://localhost:1234/v1\"\n            build_config[\"model_name\"][\"options\"] = await self.get_model(base_url_value)\n\n        return build_config\n\n    @staticmethod\n    async def get_model(base_url_value: str) -> list[str]:\n        try:\n            url = urljoin(base_url_value, \"/v1/models\")\n            async with httpx.AsyncClient() as client:\n                response = await client.get(url)\n                response.raise_for_status()\n                data = response.json()\n\n                return [model[\"id\"] for model in data.get(\"data\", [])]\n        except Exception as e:\n            msg = \"Could not retrieve models. Please, make sure the LM Studio server is running.\"\n            raise ValueError(msg) from e\n\n    inputs = [\n        *LCModelComponent._base_inputs,\n        IntInput(\n            name=\"max_tokens\",\n            display_name=\"Max Tokens\",\n            advanced=True,\n            info=\"The maximum number of tokens to generate. Set to 0 for unlimited tokens.\",\n            range_spec=RangeSpec(min=0, max=128000),\n        ),\n        DictInput(name=\"model_kwargs\", display_name=\"Model Kwargs\", advanced=True),\n        DropdownInput(\n            name=\"model_name\",\n            display_name=\"Model Name\",\n            advanced=False,\n            refresh_button=True,\n        ),\n        StrInput(\n            name=\"base_url\",\n            display_name=\"Base URL\",\n            advanced=False,\n            info=\"Endpoint of the LM Studio API. Defaults to 'http://localhost:1234/v1' if not specified.\",\n            value=\"http://localhost:1234/v1\",\n        ),\n        SecretStrInput(\n            name=\"api_key\",\n            display_name=\"LM Studio API Key\",\n            info=\"The LM Studio API Key to use for LM Studio.\",\n            advanced=True,\n            value=\"LMSTUDIO_API_KEY\",\n        ),\n        FloatInput(name=\"temperature\", display_name=\"Temperature\", value=0.1),\n        IntInput(\n            name=\"seed\",\n            display_name=\"Seed\",\n            info=\"The seed controls the reproducibility of the job.\",\n            advanced=True,\n            value=1,\n        ),\n    ]\n\n    def build_model(self) -> LanguageModel:  # type: ignore[type-var]\n        lmstudio_api_key = self.api_key\n        temperature = self.temperature\n        model_name: str = self.model_name\n        max_tokens = self.max_tokens\n        model_kwargs = self.model_kwargs or {}\n        base_url = self.base_url or \"http://localhost:1234/v1\"\n        seed = self.seed\n\n        return ChatOpenAI(\n            max_tokens=max_tokens or None,\n            model_kwargs=model_kwargs,\n            model=model_name,\n            base_url=base_url,\n            api_key=lmstudio_api_key,\n            temperature=temperature if temperature is not None else 0.1,\n            seed=seed,\n        )\n\n    def _get_exception_message(self, e: Exception):\n        \"\"\"Get a message from an LM Studio exception.\n\n        Args:\n            e (Exception): The exception to get the message from.\n\n        Returns:\n            str: The message from the exception.\n        \"\"\"\n        try:\n            from openai import BadRequestError\n        except ImportError:\n            return None\n        if isinstance(e, BadRequestError):\n            message = e.body.get(\"message\")\n            if message:\n                return message\n        return None\n",
                 "fileTypes": [],
                 "file_path": "",
                 "password": false,
@@ -823,8 +825,8 @@
                 "title_case": false
               },
               "input_value": {
-                "tool_mode": true,
                 "trace_as_input": true,
+                "tool_mode": false,
                 "trace_as_metadata": true,
                 "load_from_db": false,
                 "list": false,
@@ -834,117 +836,169 @@
                 "show": true,
                 "name": "input_value",
                 "value": "",
-                "display_name": "Input Value",
+                "display_name": "Input",
                 "advanced": false,
                 "input_types": [
                   "Message"
                 ],
                 "dynamic": false,
-                "info": "Additional input value to include in the request.",
+                "info": "",
                 "title_case": false,
                 "type": "str",
-                "_input_type": "MessageTextInput"
+                "_input_type": "MessageInput"
               },
               "max_tokens": {
-                "tool_mode": true,
-                "trace_as_input": true,
+                "tool_mode": false,
                 "trace_as_metadata": true,
-                "load_from_db": false,
+                "range_spec": {
+                  "step_type": "float",
+                  "min": 0,
+                  "max": 128000,
+                  "step": 0.1
+                },
                 "list": false,
                 "list_add_label": "Add More",
                 "required": false,
                 "placeholder": "",
                 "show": true,
                 "name": "max_tokens",
-                "value": "256",
-                "display_name": "Max Tokens",
-                "advanced": false,
-                "input_types": [
-                  "Message"
-                ],
-                "dynamic": false,
-                "info": "The maximum number of tokens to generate.",
-                "title_case": false,
-                "type": "str",
-                "_input_type": "MessageTextInput"
-              },
-              "model": {
-                "tool_mode": true,
-                "trace_as_input": true,
-                "trace_as_metadata": true,
-                "load_from_db": false,
-                "list": false,
-                "list_add_label": "Add More",
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "name": "model",
-                "value": "/models/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/manual-20250305",
-                "display_name": "Model",
-                "advanced": false,
-                "input_types": [
-                  "Message"
-                ],
-                "dynamic": false,
-                "info": "The vLLM model path or name to use for inference.",
-                "title_case": false,
-                "type": "str",
-                "_input_type": "MessageTextInput"
-              },
-              "prompt": {
-                "tool_mode": true,
-                "trace_as_input": true,
-                "trace_as_metadata": true,
-                "load_from_db": false,
-                "list": false,
-                "list_add_label": "Add More",
-                "required": false,
-                "placeholder": "",
-                "show": true,
-                "name": "prompt",
                 "value": "",
-                "display_name": "Prompt",
+                "display_name": "Max Tokens",
+                "advanced": true,
+                "dynamic": false,
+                "info": "The maximum number of tokens to generate. Set to 0 for unlimited tokens.",
+                "title_case": false,
+                "type": "int",
+                "_input_type": "IntInput"
+              },
+              "model_kwargs": {
+                "tool_mode": false,
+                "trace_as_input": true,
+                "list": false,
+                "list_add_label": "Add More",
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "model_kwargs",
+                "value": {},
+                "display_name": "Model Kwargs",
+                "advanced": true,
+                "dynamic": false,
+                "info": "",
+                "title_case": false,
+                "type": "dict",
+                "_input_type": "DictInput"
+              },
+              "model_name": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "options": [
+                  "Llama-3.1-8B-Instruct"
+                ],
+                "options_metadata": [],
+                "combobox": false,
+                "dialog_inputs": {},
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "model_name",
+                "value": "Llama-3.1-8B-Instruct",
+                "display_name": "Model Name",
+                "advanced": false,
+                "dynamic": false,
+                "info": "",
+                "refresh_button": true,
+                "title_case": false,
+                "type": "str",
+                "_input_type": "DropdownInput"
+              },
+              "seed": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "list": false,
+                "list_add_label": "Add More",
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "seed",
+                "value": 1,
+                "display_name": "Seed",
+                "advanced": true,
+                "dynamic": false,
+                "info": "The seed controls the reproducibility of the job.",
+                "title_case": false,
+                "type": "int",
+                "_input_type": "IntInput"
+              },
+              "stream": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "list": false,
+                "list_add_label": "Add More",
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "stream",
+                "value": false,
+                "display_name": "Stream",
+                "advanced": false,
+                "dynamic": false,
+                "info": "Stream the response from the model. Streaming works only in Chat.",
+                "title_case": false,
+                "type": "bool",
+                "_input_type": "BoolInput"
+              },
+              "system_message": {
+                "tool_mode": false,
+                "trace_as_input": true,
+                "multiline": true,
+                "trace_as_metadata": true,
+                "load_from_db": false,
+                "list": false,
+                "list_add_label": "Add More",
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "system_message",
+                "value": "",
+                "display_name": "System Message",
                 "advanced": false,
                 "input_types": [
                   "Message"
                 ],
                 "dynamic": false,
-                "info": "The prompt to send to the vLLM model.",
+                "info": "System message to pass to the model.",
                 "title_case": false,
                 "type": "str",
-                "_input_type": "MessageTextInput"
+                "_input_type": "MultilineInput"
               },
               "temperature": {
-                "tool_mode": true,
-                "trace_as_input": true,
+                "tool_mode": false,
                 "trace_as_metadata": true,
-                "load_from_db": false,
                 "list": false,
                 "list_add_label": "Add More",
                 "required": false,
                 "placeholder": "",
                 "show": true,
                 "name": "temperature",
-                "value": "0.9",
+                "value": 0.9,
                 "display_name": "Temperature",
                 "advanced": false,
-                "input_types": [
-                  "Message"
-                ],
                 "dynamic": false,
-                "info": "Controls the randomness of the output (0.0 to 1.0).",
+                "info": "",
                 "title_case": false,
-                "type": "str",
-                "_input_type": "MessageTextInput"
+                "type": "float",
+                "_input_type": "FloatInput"
               }
             },
-            "description": "A custom component to perform inference using a local vLLM model.",
-            "icon": "brain",
+            "description": "Generate text using LM Studio Local LLMs.",
+            "icon": "LMStudio",
             "base_classes": [
+              "LanguageModel",
               "Message"
             ],
-            "display_name": "vLLM Inference",
-            "documentation": "https://docs.langflow.org/components-custom-components",
+            "display_name": "LM Studio",
+            "documentation": "",
             "minimized": false,
             "custom_fields": {},
             "output_types": [],
@@ -957,53 +1011,100 @@
                   "Message"
                 ],
                 "selected": "Message",
-                "name": "response",
+                "name": "text_output",
                 "hidden": null,
-                "display_name": "Response",
-                "method": "build_response",
+                "display_name": "Message",
+                "method": "text_response",
                 "value": "__UNDEFINED__",
                 "cache": true,
-                "required_inputs": null,
+                "required_inputs": [],
+                "allows_loop": false,
+                "tool_mode": true
+              },
+              {
+                "types": [
+                  "LanguageModel"
+                ],
+                "selected": "LanguageModel",
+                "name": "model_output",
+                "hidden": null,
+                "display_name": "Language Model",
+                "method": "build_model",
+                "value": "__UNDEFINED__",
+                "cache": true,
+                "required_inputs": [],
                 "allows_loop": false,
                 "tool_mode": true
               }
             ],
             "field_order": [
               "input_value",
-              "prompt",
-              "model",
+              "system_message",
+              "stream",
               "max_tokens",
-              "temperature"
+              "model_kwargs",
+              "model_name",
+              "base_url",
+              "api_key",
+              "temperature",
+              "seed"
             ],
             "beta": false,
             "legacy": false,
-            "edited": true,
+            "edited": false,
             "metadata": {},
             "tool_mode": false,
             "lf_version": "1.2.0"
           },
           "showNode": true,
-          "type": "CustomVLLMComponent",
-          "id": "CustomComponent-NnG1e"
+          "type": "LMStudioModel",
+          "id": "LMStudioModel-tCx2X"
         },
         "selected": false,
         "measured": {
           "width": 320,
-          "height": 577
+          "height": 643
         },
         "dragging": false
       }
     ],
     "edges": [
       {
-        "source": "CustomComponent-NnG1e",
-        "sourceHandle": "{œdataTypeœ:œCustomVLLMComponentœ,œidœ:œCustomComponent-NnG1eœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "ChatOutput-6Q1eR",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-6Q1eRœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œstrœ}",
+        "source": "ChatInput-o38TJ",
+        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-o38TJœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "Prompt-bKKD0",
+        "targetHandle": "{œfieldNameœ:œuser_queryœ,œidœ:œPrompt-bKKD0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "data": {
+          "targetHandle": {
+            "fieldName": "user_query",
+            "id": "Prompt-bKKD0",
+            "inputTypes": [
+              "Message"
+            ],
+            "type": "str"
+          },
+          "sourceHandle": {
+            "dataType": "ChatInput",
+            "id": "ChatInput-o38TJ",
+            "name": "message",
+            "output_types": [
+              "Message"
+            ]
+          }
+        },
+        "id": "reactflow__edge-ChatInput-o38TJ{œdataTypeœ:œChatInputœ,œidœ:œChatInput-o38TJœ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-bKKD0{œfieldNameœ:œuser_queryœ,œidœ:œPrompt-bKKD0œ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "animated": false,
+        "className": ""
+      },
+      {
+        "source": "LMStudioModel-tCx2X",
+        "sourceHandle": "{œdataTypeœ:œLMStudioModelœ,œidœ:œLMStudioModel-tCx2Xœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "ChatOutput-A22QU",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-A22QUœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "ChatOutput-6Q1eR",
+            "id": "ChatOutput-A22QU",
             "inputTypes": [
               "Data",
               "DataFrame",
@@ -1012,54 +1113,27 @@
             "type": "str"
           },
           "sourceHandle": {
-            "dataType": "CustomVLLMComponent",
-            "id": "CustomComponent-NnG1e",
-            "name": "response",
+            "dataType": "LMStudioModel",
+            "id": "LMStudioModel-tCx2X",
+            "name": "text_output",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "xy-edge__CustomComponent-NnG1e{œdataTypeœ:œCustomVLLMComponentœ,œidœ:œCustomComponent-NnG1eœ,œnameœ:œresponseœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-6Q1eR{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-6Q1eRœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__LMStudioModel-tCx2X{œdataTypeœ:œLMStudioModelœ,œidœ:œLMStudioModel-tCx2Xœ,œnameœ:œtext_outputœ,œoutput_typesœ:[œMessageœ]}-ChatOutput-A22QU{œfieldNameœ:œinput_valueœ,œidœ:œChatOutput-A22QUœ,œinputTypesœ:[œDataœ,œDataFrameœ,œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
         "className": ""
       },
       {
-        "source": "ChatInput-FKyB0",
-        "sourceHandle": "{œdataTypeœ:œChatInputœ,œidœ:œChatInput-FKyB0œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "Prompt-WPdXW",
-        "targetHandle": "{œfieldNameœ:œuser_queryœ,œidœ:œPrompt-WPdXWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
-        "data": {
-          "targetHandle": {
-            "fieldName": "user_query",
-            "id": "Prompt-WPdXW",
-            "inputTypes": [
-              "Message"
-            ],
-            "type": "str"
-          },
-          "sourceHandle": {
-            "dataType": "ChatInput",
-            "id": "ChatInput-FKyB0",
-            "name": "message",
-            "output_types": [
-              "Message"
-            ]
-          }
-        },
-        "id": "xy-edge__ChatInput-FKyB0{œdataTypeœ:œChatInputœ,œidœ:œChatInput-FKyB0œ,œnameœ:œmessageœ,œoutput_typesœ:[œMessageœ]}-Prompt-WPdXW{œfieldNameœ:œuser_queryœ,œidœ:œPrompt-WPdXWœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
-        "animated": false,
-        "className": ""
-      },
-      {
-        "source": "Prompt-WPdXW",
-        "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-WPdXWœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
-        "target": "CustomComponent-NnG1e",
-        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-NnG1eœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "source": "Prompt-bKKD0",
+        "sourceHandle": "{œdataTypeœ:œPromptœ,œidœ:œPrompt-bKKD0œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}",
+        "target": "LMStudioModel-tCx2X",
+        "targetHandle": "{œfieldNameœ:œinput_valueœ,œidœ:œLMStudioModel-tCx2Xœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "data": {
           "targetHandle": {
             "fieldName": "input_value",
-            "id": "CustomComponent-NnG1e",
+            "id": "LMStudioModel-tCx2X",
             "inputTypes": [
               "Message"
             ],
@@ -1067,25 +1141,25 @@
           },
           "sourceHandle": {
             "dataType": "Prompt",
-            "id": "Prompt-WPdXW",
+            "id": "Prompt-bKKD0",
             "name": "prompt",
             "output_types": [
               "Message"
             ]
           }
         },
-        "id": "xy-edge__Prompt-WPdXW{œdataTypeœ:œPromptœ,œidœ:œPrompt-WPdXWœ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-CustomComponent-NnG1e{œfieldNameœ:œinput_valueœ,œidœ:œCustomComponent-NnG1eœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
+        "id": "xy-edge__Prompt-bKKD0{œdataTypeœ:œPromptœ,œidœ:œPrompt-bKKD0œ,œnameœ:œpromptœ,œoutput_typesœ:[œMessageœ]}-LMStudioModel-tCx2X{œfieldNameœ:œinput_valueœ,œidœ:œLMStudioModel-tCx2Xœ,œinputTypesœ:[œMessageœ],œtypeœ:œstrœ}",
         "animated": false,
         "className": ""
       }
     ],
     "viewport": {
-      "x": -58.7945668282739,
-      "y": -288.7928311044682,
-      "zoom": 0.6755011012074749
+      "x": -142.6546111295512,
+      "y": -380.0114621225167,
+      "zoom": 0.7625303692070295
     }
   },
-  "updated_at": "2025-03-05T08:53:42+00:00",
+  "updated_at": "2025-03-06T02:58:37+00:00",
   "icon": "Braces",
   "name": "vllm地端模型基本推論",
   "icon_bg_color": null,
