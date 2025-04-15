@@ -11,7 +11,7 @@ services:
       - LANGFLOW_DATABASE_URL=postgresql://langflow:langflow@postgres:5432/langflow
       - LANGFLOW_CONFIG_DIR=/var/lib/langflow
     env_file:
-      - ./env/network.env    # 這裡要加 ./env/
+      - ./env/network.env
     volumes:
       - ./langflow-data:/var/lib/langflow
     networks:
@@ -38,6 +38,20 @@ services:
       - langflow_network
     restart: unless-stopped
 
+  import_flow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: langflow_import_flow
+    volumes:
+      - ./flows:/app/flows
+    depends_on:
+      langflow:
+        condition: service_started
+    networks:
+      - langflow_network
+    restart: "no"
+
   # vllm:
   #   image: vllm/vllm-openai:latest
   #   container_name: vllm
@@ -56,7 +70,7 @@ services:
   #     - HUGGINGFACE_HUB_CACHE=/models
   #     - HF_HUB_OFFLINE=1
   #   env_file:
-  #     - ./env/network.env    # 這裡要加 ./env/
+  #     - ./env/network.env
   #   networks:
   #     - langflow_network
   #   deploy:
