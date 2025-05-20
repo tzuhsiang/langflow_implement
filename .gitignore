@@ -5,6 +5,10 @@ langflow-data/*
 langflow-postgres/*
 !langflow-postgres/.gitkeep
 
+# 忽略processed_json目錄
+processed_json/*
+
+
 # 忽略log檔
 *.log
 
