@@ -38,19 +38,26 @@ services:
       - langflow_network
     restart: unless-stopped
 
-  import_flow:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: langflow_import_flow
-    volumes:
-      - ./flows:/app/flows
-    depends_on:
-      langflow:
-        condition: service_started
-    networks:
-      - langflow_network
-    restart: "no"
+  # import_flow:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #     args:
+  #       - HTTP_PROXY
+  #       - HTTPS_PROXY
+  #       - http_proxy
+  #       - https_proxy
+  #   container_name: langflow_import_flow
+  #   volumes:
+  #     - ./flows:/app/flows
+  #   depends_on:
+  #     langflow:
+  #       condition: service_started
+  #   env_file:
+  #     - ./env/network.env
+  #   networks:
+  #     - langflow_network
+  #   restart: "no"
 
   # vllm:
   #   image: vllm/vllm-openai:latest
