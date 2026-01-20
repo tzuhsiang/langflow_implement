@@ -30,14 +30,13 @@ services:
     volumes:
       - ./langflow-postgres:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "langflow"]
+      test: [ "CMD", "pg_isready", "-U", "langflow" ]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
       - langflow_network
     restart: unless-stopped
-
   # import_flow:
   #   build:
   #     context: .
